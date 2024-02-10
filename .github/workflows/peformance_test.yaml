@@ -11,9 +11,9 @@ jobs:
       - name: Debug Repository Contents
         run: |
           ls -R ${{ github.workspace }}
-          echo "Script Path: ${{ github.workspace }}/script.js"
+          echo "Script Path: ${{ github.workspace }}/tests/test.js"
           pwd
       - name: Run k6 local test
         uses: grafana/k6-action@v0.3.1
         with:
-          filename: ${{ github.workspace }}/test.js
+          filename: ${{ github.workspace }}/tests/test.js
