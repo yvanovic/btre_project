@@ -4,8 +4,8 @@ import { check, sleep } from "k6";
 // Test configuration
 export const options = {
   thresholds: {
-    // Assert that 99% of requests finish within 3000ms.
-    http_req_duration: ["p(99) < 30"],
+    // Assert that 99% of requests finish within 10ms.
+    http_req_duration: ["p(99) < 10"],
   },
   // Ramp the number of virtual users up and down
   stages: [
