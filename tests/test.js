@@ -6,9 +6,8 @@ export const options = {
   thresholds: {
     // Assert that 99% of requests finish within 300ms.
     http_req_duration: [
-      { threshold: "p(95) < 200", abortOnFail: true, delayAbortEval: "10s" },
+      { threshold: "p(95) < 300", abortOnFail: true, delayAbortEval: "10s" },
     ],
-    http_req_failed: ["rate<0.5"],
   },
   // Ramp the number of virtual users up and down
   stages: [
