@@ -11,9 +11,9 @@ export const options = {
   },
   // Ramp the number of virtual users up and down
   stages: [
-    { duration: "30s", target: 15 },
-    { duration: "1m", target: 15 },
-    { duration: "20s", target: 0 },
+    { duration: "30s", target: 5 },
+    // { duration: "1m", target: 15 },
+    // { duration: "20s", target: 0 },
   ],
 };
 

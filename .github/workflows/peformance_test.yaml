@@ -14,3 +14,12 @@ jobs:
         uses: grafana/k6-action@v0.3.1
         with:
           filename: ${{ github.workspace }}/tests/test.js
+      - name: Build performance Test image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: tests/Dockerfile
+          tags: perf-tests:latest
+          outputs: type=docker,dst=/tmp/perf-tests.tar
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
