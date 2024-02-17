@@ -23,7 +23,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: tests/Dockerfile
+          file: ${{ github.workspace }}/tests/Dockerfile
           tags: perf-tests:latest
           outputs: type=docker,dst=/tmp/perf-tests.tar
           cache-from: type=gha
