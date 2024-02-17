@@ -25,7 +25,6 @@ jobs:
           context: .
           file: tests/Dockerfile
           tags: perf-tests:latest
-          no-cache: true
           outputs: type=docker,dst=/tmp/perf-tests.tar
           cache-from: type=gha
           cache-to: type=gha,mode=max
