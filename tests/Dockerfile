@@ -1,5 +1,4 @@
 FROM grafana/k6
 
-COPY test.js /test.js 
-
-CMD ["run", "/test.js"]
+COPY test.js /tests/test.js
+CMD ["run", "/tests/test.js"]

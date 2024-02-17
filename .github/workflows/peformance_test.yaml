@@ -12,22 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Run k6 local test
         uses: grafana/k6-action@v0.3.1
         with:
           filename: ${{ github.workspace }}/tests/test.js
       - name: Setup docker buildx
         uses: docker/setup-buildx-action@v3
-      - name: Build performance Test image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: performances/Dockerfile
-          tags: perf-tests:latest
-          outputs: type=docker,dst=/tmp/perf-tests.tar
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
       - name: Build Test image
         uses: docker/build-push-action@v5
         with:
@@ -35,5 +26,14 @@ jobs:
           file: tests/Dockerfile
           tags: tests:latest
           outputs: type=docker,dst=/tmp/tests.tar
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Build performance Test image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: performances/Dockerfile
+          tags: perf-tests:latest
+          outputs: type=docker,dst=/tmp/perf-tests.tar
           cache-from: type=gha
           cache-to: type=gha,mode=max
