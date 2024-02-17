@@ -22,8 +22,8 @@ jobs:
       - name: Build Test image
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: tests
+          context: tests
+          file: tests/Dockerfile
           tags: tests:latest
           outputs: type=docker,dst=/tmp/tests.tar
           cache-from: type=gha
