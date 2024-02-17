@@ -31,7 +31,7 @@ jobs:
       - name: Build performance Test image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: performances
           file: performances/Dockerfile
           tags: perf-tests:latest
           outputs: type=docker,dst=/tmp/perf-tests.tar
