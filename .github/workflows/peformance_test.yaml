@@ -23,8 +23,17 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: tests/Dockerfile
+          file: performance_tests/Dockerfile
           tags: perf-tests:latest
           outputs: type=docker,dst=/tmp/perf-tests.tar
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Build Test image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: tests/Dockerfile
+          tags: tests:latest
+          outputs: type=docker,dst=/tmp/tests.tar
           cache-from: type=gha
           cache-to: type=gha,mode=max
