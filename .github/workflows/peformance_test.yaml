@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "15 15 * * *" # Run every 3 days at 7:15 PM UTC
+  push:
+    branches:
+      - perf_test
 
 jobs:
   performance-test:
@@ -22,6 +25,7 @@ jobs:
           context: .
           file: performance_tests/Dockerfile
           tags: perf-tests:latest
+          no-cache: true
           outputs: type=docker,dst=/tmp/perf-tests.tar
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # cache-from: type=gha
+          # cache-to: type=gha,mode=max
