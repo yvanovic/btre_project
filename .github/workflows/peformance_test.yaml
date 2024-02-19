@@ -1,7 +1,7 @@
 name: performance-test-bench
 on:
   schedule:
-    - cron: "20 11 * * *" # Run every 3 days at 7:15 PM UTC
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 jobs:
