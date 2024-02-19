@@ -1,12 +1,8 @@
 name: performance-test-bench
 on:
-  workflow_dispatch:
-    inputs:
-      dailyTrigger:
-        description: "Trigger daily execution"
-        required: true
   schedule:
-    - cron: "02 11 * * *" # Run every 3 days at 7:15 PM UTC
+    - cron: "20 11 * * *" # Run every 3 days at 7:15 PM UTC
+  workflow_dispatch:
 
 jobs:
   performance-test:
