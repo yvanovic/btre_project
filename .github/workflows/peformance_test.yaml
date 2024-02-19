@@ -1,5 +1,7 @@
 name: performance-test-benchmark
 on:
+  schedule:
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 jobs:
